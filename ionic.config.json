@@ -1,0 +1,7 @@
+{
+  "name": "test-prev",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
