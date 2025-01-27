@@ -1,17 +1,17 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-{path : 'main',loadComponent: () => import('./main/main.page').then(m => m.MainPage)},
+  { path: 'main', loadComponent: () => import('./main/main.page').then(m => m.MainPage) },
   {
     path: 'tutorlist',
-    loadComponent: () => import('./tutorlist/tutorlist.page').then( m => m.TutorlistPage)
+    loadComponent: () => import('./tutorlist/tutorlist.page').then(m => m.TutorlistPage)
   },
   {
     path: 'userslist',
-    loadComponent: () => import('./userslist/userslist.page').then( m => m.UserslistPage)
+    loadComponent: () => import('./userslist/userslist.page').then(m => m.UserslistPage)
   },
   {
     path: 'bookinglist',
-    loadComponent: () => import('./bookinglist/bookinglist.page').then( m => m.BookinglistPage)
+    loadComponent: () => import('./bookinglist/bookinglist.page').then(m => m.BookinglistPage)
   }
 ];
