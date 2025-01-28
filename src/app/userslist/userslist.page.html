@@ -1,16 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button menu = "m1"></ion-menu-button>
-    </ion-buttons>  
-    <ion-title>userslist</ion-title>
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>    
+    <ion-title>Lista de Usuarios</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">userslist</ion-title>
+      <ion-title size="large">Lista de Usuarios</ion-title>
     </ion-toolbar>
   </ion-header>
+  
+  <ion-list>
+    <ion-item *ngIf="!users || users.length === 0">
+      <ion-label>No hay usuarios disponibles</ion-label>
+    </ion-item>
+    <ion-card *ngFor="let user of users; let i = index; trackBy: trackById">
+      <ion-card-header>
+        <ion-card-title>
+          {{i + 1}}. {{user.first_name}} {{user.last_name}}
+          <ion-button (click)="selectUser(user)" size="small">Seleccionar</ion-button>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content *ngIf="selectedUser && selectedUser.id === user.id">
+        <div class="grid-container">
+          <div class="grid-item"><strong>ID:</strong> {{selectedUser.id}}</div>
+          <div class="grid-item"><strong>Fecha de Nacimiento:</strong> {{selectedUser.date_of_birth}}</div>
+          <div class="grid-item"><strong>Dirección:</strong> {{selectedUser.address}}</div>
+          <div class="grid-item"><strong>Creado el:</strong> {{selectedUser.created_at}}</div>
+          <div class="grid-item"><strong>Actualizado el:</strong> {{selectedUser.updated_at}}</div>
+        </div>
+        <ion-button (click)="clearSelection()">Limpiar Selección</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

@@ -1,0 +1,19 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}
+  
+.grid-item {
+    padding: 5px;
+}
+
+ion-card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ion-button {
+    margin-left: 10px;
+}

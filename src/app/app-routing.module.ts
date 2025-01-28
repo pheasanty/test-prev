@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import TutorlistPage from './tutorlist/tutorlist.page';
 
 const routes: Routes = [
   {
@@ -14,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'tutorlist',
-    component: TutorlistPage
+    loadChildren: () => import('./tutorlist/tutorlist.page').then(m => m.TutorlistPage)
   },
   {
     path: 'bookinglist',

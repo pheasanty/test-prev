@@ -1,16 +1,55 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button menu = "m1"></ion-menu-button>
+      <ion-menu-button menu="m1"></ion-menu-button>
     </ion-buttons>  
-    <ion-title>bookinglist</ion-title>
+    <ion-title>Lista de Reservas</ion-title>
+    <ion-buttons slot="end">
+      <ion-item class="filter-item" lines="none">
+        <ion-label class="filter-label">Filtrar por Usuario</ion-label>
+        <ion-input [(ngModel)]="filterStudentName" (ionInput)="applyFilter()" placeholder="  Introducir nombre"></ion-input>
+      </ion-item>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">bookinglist</ion-title>
+      <ion-title size="large">Lista de Reservas</ion-title>
     </ion-toolbar>
   </ion-header>
+  
+  <ion-list>
+    <ion-item *ngIf="!filteredBookings?.length">
+      <ion-label>No hay reservas disponibles</ion-label>
+    </ion-item>
+    <ion-card *ngFor="let booking of filteredBookings; let i = index; trackBy: trackById">
+      <ion-card-header>
+        <ion-card-title>
+          {{i + 1}}. {{booking.student.first_name}} {{booking.student.last_name}}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="grid-container">
+          <div class="grid-item"><strong>ID:</strong> {{booking.id}}</div>
+          <div class="grid-item"><strong>Fecha:</strong> {{booking.date}}</div>
+          <div class="grid-item"><strong>Hora de Inicio:</strong> {{booking.start_time}}</div>
+          <div class="grid-item"><strong>Hora de Fin:</strong> {{booking.end_time}}</div>
+          <div class="grid-item"><strong>Creado el:</strong> {{booking.created_at}}</div>
+          <div class="grid-item"><strong>Actualizado el:</strong> {{booking.updated_at}}</div>
+          <div class="grid-item"><strong>ID del Tutor:</strong> {{booking.tutor_id}}</div>
+          <div class="grid-item"><strong>Nombre del Tutor:</strong> {{booking.tutor.first_name}} {{booking.tutor.last_name}}</div>
+          <div class="grid-item"><strong>Email del Tutor:</strong> {{booking.tutor.email}}</div>
+          <div class="grid-item"><strong>Fecha de Nacimiento del Tutor:</strong> {{booking.tutor.date_of_birth}}</div>
+          <div class="grid-item"><strong>Nacionalidad del Tutor:</strong> {{booking.tutor.nationality}}</div>
+          <div class="grid-item"><strong>Especialidad del Tutor:</strong> {{booking.tutor.speciality}}</div>
+          <div class="grid-item"><strong>ID del Usuario:</strong> {{booking.student_id}}</div>
+          <div class="grid-item"><strong>Nombre del Usuario:</strong> {{booking.student.first_name}} {{booking.student.last_name}}</div>
+          <div class="grid-item"><strong>Fecha de Nacimiento del Usuario:</strong> {{booking.student.date_of_birth}}</div>
+          <div class="grid-item"><strong>Dirección del Usuario:</strong> {{booking.student.address}}</div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

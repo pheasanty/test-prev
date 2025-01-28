@@ -1,0 +1,32 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}
+  
+.grid-item {
+    padding: 5px;
+}
+
+ion-card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ion-button {
+    margin-left: 10px;
+}
+
+.filter-item {
+  margin-right: 20px; /* Adjust the value as needed */
+  margin-left: 20px; /* Add left margin for more separation */
+  margin-top: 10px; /* Add top margin for more separation */
+  margin-bottom: 10px; /* Add bottom margin for more separation */
+  display: flex;
+  align-items: center;
+}
+
+.filter-label {
+  margin-right: 20px; /* Adjust the value as needed */
+}

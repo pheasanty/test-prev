@@ -1,0 +1,25 @@
+/* filepath: /c:/Users/jose_/Proyectos/proyectos_vscode/test/test-prev/src/app/tutorlist/tutorlist.page.scss */
+.filter-item {
+    margin-right: 20px; /* Adjust the value as needed */
+    margin-left: 20px; /* Add left margin for more separation */
+    margin-top: 10px; /* Add top margin for more separation */
+    margin-bottom: 10px; /* Add bottom margin for more separation */
+    display: flex;
+    align-items: center;
+}
+  
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}
+  
+.grid-item {
+    padding: 5px;
+}
+
+
+  
+  .filter-label {
+    margin-right: 20px; /* Ajusta el valor según sea necesario */
+  }
